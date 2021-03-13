@@ -1,15 +1,9 @@
 #include "tools.h"
 #include <math.h>
+#define PI 3.1415
 
-typedef struct  { 
-	double x; 
-	double y; 
-} Point ;		//cada punto tendra una estructura de este tipo
 
-typedef struct { 
-	Point InfIzq; 
-	Point SupDer; 
-} Rect;			//coordenadas de composicion de un rectangulo
+		//coordenadas de composicion de un rectangulo
 
 double getDistanceBetweenPoints(Point p1, Point p2)			//distancia euclidiana entre dos puntos
 {
@@ -17,11 +11,13 @@ double getDistanceBetweenPoints(Point p1, Point p2)			//distancia euclidiana ent
 	return (sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y)));
 }
 
-double getAngleBetweenPints(Point p1, Point p2)//angulo del segmento entre dos puntos.
+double getAngleBetweenPoints(Point p1, Point p2)//angulo del segmento entre dos puntos.
 {
 	//siempre tomo a p1 como eje de rotación, al "norte"/eje cartesiano "y" como referencia del angulo
-	//angulo se mide en radianes (0 a 2pi)
-	return(   atan((p2.y - p1.y)/(p2.x - p1.x))   );
+	if (isPointEqual(p1, p2))
+		return 0;
+	double angle = atan((p2.x - p1.x), (p2.y - p1.y)) * (180 / PI);//angulo entre -180 to 180
+	return(angle >= 0 ? angle : angle + 360);//si es negativo le sumo una vuelta
 }
 
 Point translatePoint(Point p, double distance, double angle)//translada el punto p la distancia y angulo especificados
