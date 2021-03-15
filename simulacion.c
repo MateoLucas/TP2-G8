@@ -1,6 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
-#include <tools.h>
+#include "tools.h"
 #define N_ROBOTS 1000
 
 typedef struct {
@@ -28,6 +28,8 @@ int simulacion(int n, int height, int width, bool mode)//mode 1 = false ; mode 2
 	int baldosas_sucias = height * width;//la cantidad de baldosas sucias
 	while (baldosas_sucias > 0)
 	{
+		/*if(mode)
+			allegro_print(bool* Piso, Roomba* pRoomba);*/
 		ticks++;
 		for (int j = 0; j < n; j++)
 		{

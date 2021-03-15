@@ -3,15 +3,8 @@
 
 void main()
 {
-	
 	//entrada de datos
-
-
-	typedef struct {
-		Point point; //Point para que sea mas facil de usar con las funciones de tool.c(?)
-		double direction; // (0 a 2pi)
-	}Robot;
-	
-
-
+	int prueba = simulacion(1,5,5);
+	printf("ticks: %d\n",prueba);
+	return 0;
 }

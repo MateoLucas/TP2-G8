@@ -1,5 +1,6 @@
 #include "tools.h"
 #include <math.h>
+#include <stdbool.h>
 #define PI 3.1415
 
 
@@ -16,7 +17,7 @@ double getAngleBetweenPoints(Point p1, Point p2)//angulo del segmento entre dos 
 	//siempre tomo a p1 como eje de rotación, al "norte"/eje cartesiano "y" como referencia del angulo
 	if (isPointEqual(p1, p2))
 		return 0;
-	double angle = atan((p2.x - p1.x), (p2.y - p1.y)) * (180 / PI);//angulo entre -180 to 180
+	double angle = atan((p2.x - p1.x)/ (p2.y - p1.y)) * (180 / PI);//angulo entre -180 to 180
 	return(angle >= 0 ? angle : angle + 360);//si es negativo le sumo una vuelta
 }
 

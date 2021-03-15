@@ -1,6 +1,6 @@
 #ifndef TOOLS_H
 #define TOOLS_H
-
+#include <stdbool.h>
 typedef struct {
 	double x;
 	double y;
